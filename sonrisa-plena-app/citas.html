@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citas - Sonrisa Plena</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- Sidebar (igual que en las otras páginas) -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+                        <path d="M20 5C15 5 10 8 10 15C10 20 12 25 20 35C28 25 30 20 30 15C30 8 25 5 20 5Z" fill="#00B4D8" stroke="#00B4D8" stroke-width="2"/>
+                        <circle cx="20" cy="15" r="4" fill="white"/>
+                    </svg>
+                    <span class="logo-text">Sonrisa Plena</span>
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle">×</button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+                <a href="pacientes.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    </svg>
+                    <span>Pacientes</span>
+                </a>
+                <a href="citas.html" class="nav-item active">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <span>Citas</span>
+                </a>
+                <a href="historial.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                    </svg>
+                    <span>Historial Clínico</span>
+                </a>
+                <a href="facturacion.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                        <line x1="1" y1="10" x2="23" y2="10"></line>
+                    </svg>
+                    <span>Facturación</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">AD</div>
+                    <div class="user-details">
+                        <span class="user-name">Dr. Admin</span>
+                        <span class="user-role">Administrador</span>
+                    </div>
+                </div>
+                <button class="btn-logout" id="logoutBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                        <polyline points="16 17 21 12 16 7"></polyline>
+                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+                </button>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="dashboard-header">
+                <button class="menu-btn" id="menuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <h1>Citas</h1>
+                <div class="header-actions">
+                    <button class="btn-primary" id="addAppointmentBtn">+ Nueva Cita</button>
+                </div>
+            </header>
+            
+            <div class="dashboard-content">
+                <!-- Calendar View -->
+                <div class="card">
+                    <div class="calendar-header">
+                        <button class="btn-nav" id="prevMonth">‹</button>
+                        <h3 id="currentMonth">Noviembre 2025</h3>
+                        <button class="btn-nav" id="nextMonth">›</button>
+                    </div>
+                    <div class="calendar-grid">
+                        <div class="calendar-day-header">Lun</div>
+                        <div class="calendar-day-header">Mar</div>
+                        <div class="calendar-day-header">Mié</div>
+                        <div class="calendar-day-header">Jue</div>
+                        <div class="calendar-day-header">Vie</div>
+                        <div class="calendar-day-header">Sáb</div>
+                        <div class="calendar-day-header">Dom</div>
+                        
+                        <!-- Calendar days will be generated by JS -->
+                        <div class="calendar-day inactive">28</div>
+                        <div class="calendar-day inactive">29</div>
+                        <div class="calendar-day inactive">30</div>
+                        <div class="calendar-day inactive">31</div>
+                        <div class="calendar-day">1</div>
+                        <div class="calendar-day">2</div>
+                        <div class="calendar-day">3</div>
+                        <div class="calendar-day">4</div>
+                        <div class="calendar-day">5</div>
+                        <div class="calendar-day">6</div>
+                        <div class="calendar-day">7</div>
+                        <div class="calendar-day">8</div>
+                        <div class="calendar-day">9</div>
+                        <div class="calendar-day active">11<span class="calendar-dot"></span></div>
+                        <div class="calendar-day">12</div>
+                        <div class="calendar-day">13</div>
+                        <div class="calendar-day">14</div>
+                        <div class="calendar-day">15</div>
+                        <div class="calendar-day">16</div>
+                        <div class="calendar-day">17</div>
+                        <div class="calendar-day">18</div>
+                        <div class="calendar-day">19</div>
+                        <div class="calendar-day">20</div>
+                        <div class="calendar-day">21</div>
+                        <div class="calendar-day">22</div>
+                        <div class="calendar-day">23</div>
+                        <div class="calendar-day">24</div>
+                        <div class="calendar-day">25</div>
+                        <div class="calendar-day">26</div>
+                        <div class="calendar-day">27</div>
+                        <div class="calendar-day">28</div>
+                        <div class="calendar-day">29</div>
+                        <div class="calendar-day">30</div>
+                    </div>
+                </div>
+                
+                <!-- Appointments List -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Citas de Hoy - 11 de Noviembre</h3>
+                    </div>
+                    <div class="appointments-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-time">09:00</div>
+                            <div class="timeline-content">
+                                <div class="timeline-info">
+                                    <h4>María González</h4>
+                                    <p>Limpieza dental</p>
+                                </div>
+                                <span class="badge badge-confirmed">Confirmada</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">10:30</div>
+                            <div class="timeline-content">
+                                <div class="timeline-info">
+                                    <h4>Carlos Ramírez</h4>
+                                    <p>Ortodoncia - Ajuste de brackets</p>
+                                </div>
+                                <span class="badge badge-pending">Pendiente</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">11:45</div>
+                            <div class="timeline-content">
+                                <div class="timeline-info">
+                                    <h4>Ana Martínez</h4>
+                                    <p>Endodoncia - Tratamiento de conducto</p>
+                                </div>
+                                <span class="badge badge-confirmed">Confirmada</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">14:00</div>
+                            <div class="timeline-content">
+                                <div class="timeline-info">
+                                    <h4>Luis Pérez</h4>
+                                    <p>Extracción de muela</p>
+                                </div>
+                                <span class="badge badge-confirmed">Confirmada</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Modal Nueva Cita -->
+    <div class="modal" id="appointmentModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Nueva Cita</h2>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <form id="appointmentForm">
+                <div class="form-group">
+                    <label>Paciente *</label>
+                    <select required>
+                        <option value="">Seleccionar paciente...</option>
+                        <option>María González</option>
+                        <option>Carlos Ramírez</option>
+                        <option>Ana Martínez</option>
+                        <option>Luis Pérez</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Fecha *</label>
+                        <input type="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Hora *</label>
+                        <input type="time" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Tipo de Procedimiento *</label>
+                    <select required>
+                        <option value="">Seleccionar...</option>
+                        <option>Limpieza dental</option>
+                        <option>Ortodoncia</option>
+                        <option>Endodoncia</option>
+                        <option>Extracción</option>
+                        <option>Implantes</option>
+                        <option>Consulta general</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Notas</label>
+                    <textarea rows="3"></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" id="cancelBtn">Cancelar</button>
+                    <button type="submit" class="btn-primary">Agendar Cita</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="js/citas.js"></script>
+</body>
+</html>
